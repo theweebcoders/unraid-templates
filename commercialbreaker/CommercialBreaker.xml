@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Container version="2">
-  <n>CommercialBreaker</n>
-  <Category>MediaServer:Tools</Category>
+  <Name>CommercialBreaker</Name>
+  <Category>MediaServer: Tools:</Category>
   <Overview>Relive Toonami with a custom marathon generator that slices anime, injects ads, and builds a full channel. Because your anime deserves commercial breaks.</Overview>
   <Project>https://github.com/theweebcoders/CommercialBreaker</Project>
   <Support>https://discord.gg/S7NcUdhKRD</Support>
