@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container version="2">
+  <n>CommercialBreaker</n>
+  <Category>MediaServer:Tools</Category>
+  <Overview>Relive Toonami with a custom marathon generator that slices anime, injects ads, and builds a full channel. Because your anime deserves commercial breaks.</Overview>
+  <Project>https://github.com/theweebcoders/CommercialBreaker</Project>
+  <Support>https://discord.gg/S7NcUdhKRD</Support>
+  <Description>
+    &lt;h3&gt;CommercialBreaker &amp; Toonami Tools: Because Your Anime Deserves Commercial Breaks&lt;/h3&gt;
+
+    Hey there, space cowboy. Remember those long Toonami nights filled with anime and the oddly comforting interruption of commercials? Ever thought your sleek, ad-free Plex server felt a little too... smooth? Well, we've got the fix for you, because here, we're mixing the future with a splash of the past.
+
+    Welcome aboard the Absolution, where we're on a mission to boldly put the commercials back into your favorite anime. Why? Because we can. Because it's a kind of nostalgia that just feels right.
+
+    We've got two Python apps in our hyperdrive: CommercialBreaker and Toonami Tools. They'll slice up your anime and make room for those memory-ridden ads you secretly miss. Want your Plex server to feel like a marathon Toonami night? We got you. Got DizqueTV all set up? Even better. You one of those fancy new tunarr users? We've got you covered too.
+
+    So, who's the bigger otaku here? The person adding commercials back into their anime, or the mad scientist who spent a year and six months in the coding mines to make it happen? No matter, we're all in this giant robot together.
+
+    Until next time, stay gold.
+
+    &lt;h4&gt;What it does&lt;/h4&gt;
+
+    Toonami Tools and CommercialBreaker automate a continuous Toonami marathon.
+
+    Here's how it works:
+    &lt;ul&gt;
+      &lt;li&gt;Provide a directory with multi-lineup bumps, transitional bumps, and shows.&lt;/li&gt;
+      &lt;li&gt;The marathon starts with a lineup bump, like "Toonami 2.0: Now Bleach, Next Naruto, Later One Piece."&lt;/li&gt;
+      &lt;li&gt;"Bleach" airs, with transitional bumps for commercials. AKA Bleach will be right back &amp; Now more bleach&lt;/li&gt;
+      &lt;li&gt;After "Bleach," "Naruto" airs with its commercial transitions.&lt;/li&gt;
+      &lt;li&gt;The tools then select the next lineup bump starting with "One Piece," such as "Toonami 2.0: Now One Piece, Next Blue Exorcist, Later Black Lagoon."&lt;/li&gt;
+      &lt;li&gt;This pattern continues, using the end of one bump to determine the start of the next.&lt;/li&gt;
+    &lt;/ul&gt;
+
+    The result is an unbroken Toonami marathon, where multi-lineup bumps set the sequence and transitions connect each lineup smoothly.
+
+    The brilliance of these tools lies in their ability to create an unbroken Toonami marathon, using the multi-lineup bumps to define the sequence, and seamlessly connecting the end of one lineup to the beginning of another.
+
+    ☕ Support your local mad scientist: &lt;a href="https://www.buymeacoffee.com/tim000x3"&gt;Buy Me A Coffee&lt;/a&gt;
+
+    Full README and lore: &lt;a href="https://github.com/theweebcoders/CommercialBreaker"&gt;GitHub Repo&lt;/a&gt;
+
+    Need help? Join the resistance: &lt;a href="https://discord.gg/S7NcUdhKRD"&gt;Discord&lt;/a&gt;
+  </Description>
+  <Registry>https://hub.docker.com/r/tim000x3/commercial-breaker</Registry>
+  <Repository>tim000x3/commercial-breaker</Repository>
+  <BindTime>true</BindTime>
+  <WebUI>http://[IP]:[PORT:8081]</WebUI>
+  <Icon>https://avatars.githubusercontent.com/u/172365950?s=400&u=7a2a1b390dff7240cfc5a662414c90d19eef7217&v=4</Icon>
+  <ExtraParams></ExtraParams>
+
+  <Network>bridge</Network>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8081</HostPort>
+        <ContainerPort>8081</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/media/anime</HostDir>
+      <ContainerDir>/app/anime</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/media/bumps</HostDir>
+      <ContainerDir>/app/bump</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/media/special_bumps</HostDir>
+      <ContainerDir>/app/special_bump</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/commercialbreaker/working</HostDir>
+      <ContainerDir>/app/working</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+</Container>
