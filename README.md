@@ -22,7 +22,7 @@ https://github.com/theweebcoders/unraid-templates
 
 ## ☕ Support the Developer
 
-If this project made your Plex server 9000% more nostalgic:
+If this project made your Plex server 9001% more nostalgic:
 - [Buy Me A Coffee](https://www.buymeacoffee.com/tim000x3)
 - [Join the Discord](https://discord.gg/S7NcUdhKRD)
 
