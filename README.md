@@ -8,18 +8,7 @@ This repo contains Unraid Community Applications templates crafted by anime-lovi
   A Docker container that turns your Plex library into a full-blown Toonami marathon block. Slices your anime, adds commercial breaks, and builds channels in DizqueTV or Tunarr.  
   [Project Repo](https://github.com/theweebcoders/CommercialBreaker)
 
-## 🛠 Usage
-
-1. Go to **Community Apps** > **Settings** in Unraid.
-2. Add this repo as a **template source**:
-
-```
-https://github.com/theweebcoders/unraid-templates
-```
-
-3. Reload Community Apps.
-4. Search for `CommercialBreaker` and install.
-
+  
 ## ☕ Support the Developer
 
 If this project made your Plex server 9001% more nostalgic:
