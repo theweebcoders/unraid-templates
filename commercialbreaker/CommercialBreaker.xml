@@ -46,7 +46,7 @@
   <Repository>tim000x3/commercial-breaker</Repository>
   <BindTime>true</BindTime>
   <WebUI>http://[IP]:[PORT:8081]</WebUI>
-  <Icon>https://avatars.githubusercontent.com/u/172365950?s=400&u=7a2a1b390dff7240cfc5a662414c90d19eef7217&v=4</Icon>
+  <Icon>https://avatars.githubusercontent.com/u/172365950?s=400&amp;u=7a2a1b390dff7240cfc5a662414c90d19eef7217&amp;v=4</Icon>
   <ExtraParams></ExtraParams>
   <Network>bridge</Network>
   <Networking>
