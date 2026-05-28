@@ -12,7 +12,7 @@
 
     Welcome aboard the Absolution, where we're on a mission to boldly put the commercials back into your favorite anime. Why? Because we can. Because it's a kind of nostalgia that just feels right.
 
-    We've got two Python apps in our hyperdrive: CommercialBreaker and Toonami Tools. They'll slice up your anime and make room for those memory-ridden ads you secretly miss. Want your Plex server to feel like a marathon Toonami night? We got you. Got DizqueTV all set up? Even better. You one of those fancy new tunarr users? We've got you covered too.
+    We've got three Python apps in our hyperdrive: CommercialBreaker, Toonami Tools, and ComBreakDirect. They'll slice up your anime and make room for those memory-ridden ads you secretly miss. Want your Plex server to feel like a marathon Toonami night? We got you. Got DizqueTV all set up? Even better. You one of those fancy new tunarr users? We've got you covered too. And if you're feeling extra bold, we built our own streaming server called ComBreakDirect—because sometimes you just want to cut out the middleman and let the Absolution handle everything.
 
     So, who's the bigger otaku here? The person adding commercials back into their anime, or the mad scientist who spent a year and six months in the coding mines to make it happen? No matter, we're all in this giant robot together.
 
@@ -34,7 +34,11 @@
 
     The result is an unbroken Toonami marathon, where multi-lineup bumps set the sequence and transitions connect each lineup smoothly.
 
-    The brilliance of these tools lies in their ability to create an unbroken Toonami marathon, using the multi-lineup bumps to define the sequence, and seamlessly connecting the end of one lineup to the beginning of another.
+    &lt;h4&gt;ComBreakDirect: Build Your Own Broadcast Tower&lt;/h4&gt;
+
+    ComBreakDirect is our self-hosted streaming server—think building your own Gundam instead of buying one off the shelf. No DizqueTV. No Tunarr. Just a Flask-powered broadcast tower on port 8083 that emulates an HDHomeRun tuner so Plex AND Jellyfin can both watch the same channel at the same time. It pre-renders commercial breaks so there's no awkward loading screen when a break hits, generates M3U playlists and XMLTV guides on the fly, and serves a Toonami-styled landing page with copy buttons for every URL you need to paste into your media server.
+
+    The party trick: ComBreakDirect channels never end. Every channel ships with a built-in watchdog that wakes up a few hours before your channel would naturally run out and silently stitches the next batch of episodes onto the end—picking up exactly where each show left off. Create the channel once. Walk away for a week. Come back. One Piece is still on. The Absolution doesn't sleep.
 
     ☕ Support your local mad scientist: &lt;a href="https://www.buymeacoffee.com/tim000x3"&gt;Buy Me A Coffee&lt;/a&gt;
 
@@ -55,6 +59,11 @@
       <Port>
         <HostPort>8081</HostPort>
         <ContainerPort>8081</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>8083</HostPort>
+        <ContainerPort>8083</ContainerPort>
         <Protocol>tcp</Protocol>
       </Port>
     </Publish>
@@ -80,5 +89,27 @@
       <ContainerDir>/app/working</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
+    <Volume>
+      <HostDir>/mnt/user/media/commercials</HostDir>
+      <ContainerDir>/app/commercials</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/commercialbreaker/database</HostDir>
+      <ContainerDir>/data</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
   </Data>
+  <Environment>
+    <Variable>
+      <Value>/data</Value>
+      <Name>DB_DIR</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>/data/Toonami.db</Value>
+      <Name>DB_PATH</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
 </Container>
